@@ -188,7 +188,7 @@ toResource = (val) ->
     else
         throw new Error("toResource only supports strings, numbers and objects")
 
-class Hashcash
+class window.Hashcash
 
     constructor: (str) ->
         [@version, @bits, @date, @resource, @extension, @rand, @counter] = \
@@ -239,7 +239,7 @@ class Hashcash
                 check counter
 
 
-Hashcash.fromResource = (resource) ->
+window.Hashcash.fromResource = (resource) ->
     rand = randomBase64String HASHCASH_DEFAULT_RAND_LEN
     new Hashcash hashcashToString null, null, null, resource, null, rand, null
 
