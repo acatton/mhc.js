@@ -2,6 +2,15 @@
 <meta charset="utf-8">
 <title>Hashcash</title>
 
+<div id="enable-javascript" style="background: red; color: white; padding: 1em;">This page only works with Javascript enabled</div>
+<script>
+(function (el) {
+ if (typeof window.Promise === 'undefined') { el.innerHTML = 'You need a browser supporting promises. (Firefox 35 for example)'; }
+ else if (typeof window.crypto === 'undefined') { el.innerHTML = 'You need a browser supporting web cryptography. (Firefox 35 for example)'; }
+ else { el.style.display = 'none'; }
+})(document.getElementById("enable-javascript"));
+</script>
+
 <p>Compute the hashcash for:</p>
 <p><label for="resource">Resource: <input type="text" id="resource"></label></p>
 <p><button onclick="findHashcash()">Compute</button></p>
