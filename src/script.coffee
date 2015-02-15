@@ -173,7 +173,7 @@ toResource = (val) ->
         else
             new Promise (resolve, reject) -> resolve str
 
-    numberToResource = (n) -> new Promise (resolve, reject) -> "" + n
+    numberToResource = (n) -> new Promise (resolve, reject) -> resolve "" + n
     arrayToResource = (arr) -> hashArray arr
     objectToResource = (obj) -> hashObject obj
 
