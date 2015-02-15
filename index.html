@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Hashcash</title>
+
+<p>Compute the hashcash for:</p>
+<p><label for="resource">Resource: <input type="text" id="resource"></label></p>
+<p><button onclick="findHashcash()">Compute</button></p>
+<p id="result">Nothing to compute.</p>
+
+<script src="src/script.min.js"></script>
+<script>
+(function (w, doc) {
+  var computing = false;
+
+  w.findHashcash = function() {
+    if (computing) {
+      alert("Already computing!");
+    } else {
+      computing = true;
+      var result = doc.getElementById("result");
+      var value = doc.getElementById("resource").value;
+
+      result.innerHTML = 'Computing...';
+      Hashcash.fromResource(value).findSolution().then(function (hashcash) {
+        result.innerHTML = hashcash.toString();
+        computing = false;
+      });
+    }
+  }
+
+})(window, document);
+</script>
